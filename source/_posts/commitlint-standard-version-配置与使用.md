@@ -9,13 +9,13 @@ tags:
 
 ```bash
 # commitlint
-npm install --save-dev @commitlint/config-conventional @commitlint/cli
+npm i -D @commitlint/config-conventional @commitlint/cli
 # git hook 客户端
-npm install --save-dev husky
+npm i -D husky
 # 版本升级，自动编写changelog，自动打tag工具
-npm install --save-dev standard-version
+npm i -D standard-version
 # index.html 生成工具
-npm install --save-dev html-webpack-plugin
+npm i -D html-webpack-plugin
 ```
 
 目录结构

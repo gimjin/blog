@@ -11,17 +11,17 @@ tags:
 
 ```bash
 # eslint
-npm i eslint eslint-plugin-import eslint-plugin-node eslint-plugin-promise
+npm i -D eslint eslint-plugin-import eslint-plugin-node eslint-plugin-promise
 # eslint 解析器
-npm i babel-eslint vue-eslint-parser
+npm i -D babel-eslint vue-eslint-parser
 # eslint 规范
-npm i eslint-config-canonical-jsdoc eslint-config-standard eslint-plugin-standard eslint-plugin-vue
+npm i -D eslint-config-canonical-jsdoc eslint-config-standard eslint-plugin-standard eslint-plugin-vue
 # stylelint for css & scss, and autoprefixer
-npm i stylelint stylelint-scss stylelint-config-recommended-scss autoprefixer
+npm i -D stylelint stylelint-scss stylelint-config-recommended-scss autoprefixer
 # git 相关工具
-npm i husky lint-staged imagemin-lint-staged
+npm i -D husky lint-staged imagemin-lint-staged
 # webpack loader
-npm i eslint-loader postcss-loader
+npm i -D eslint-loader postcss-loader
 ```
 
 目录结构
