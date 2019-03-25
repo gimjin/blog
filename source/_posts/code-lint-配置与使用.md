@@ -16,8 +16,8 @@ npm i eslint eslint-plugin-import eslint-plugin-node eslint-plugin-promise
 npm i babel-eslint vue-eslint-parser
 # eslint 规范
 npm i eslint-config-canonical-jsdoc eslint-config-standard eslint-plugin-standard eslint-plugin-vue
-# stylelint for css & scss
-npm i stylelint stylelint-scss stylelint-config-recommended-scss
+# stylelint for css & scss, and autoprefixer
+npm i stylelint stylelint-scss stylelint-config-recommended-scss autoprefixer
 # git 相关工具
 npm i husky lint-staged imagemin-lint-staged
 # webpack loader
