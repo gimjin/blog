@@ -4,8 +4,14 @@ date: 2019-03-25 09:48:41
 tags:
 ---
 
-安装
+F2E版本管理标准
 ---
+[点击查看](https://www.icloud.com/keynote/0x4LpFsy0Kgpd46Nnyh0i-34Q#F2E_%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6)
+
+部署与配置
+---
+
+### 安装
 
 ```bash
 # commitlint
@@ -18,8 +24,7 @@ npm i -D standard-version
 npm i -D html-webpack-plugin
 ```
 
-目录结构
-------
+### 目录结构
 
 My Project
 |- public
@@ -29,8 +34,7 @@ My Project
 |- package.json
 |- webpack.config.js
 
-配置文件
-------
+### 配置文件
 
 ```javascript
 // .huskyrc.js
@@ -48,7 +52,7 @@ module.exports = {
 }
 ```
 
-```javascript
+```json
 // package.json
 "scripts": {
   "release": "standard-version",
@@ -72,8 +76,7 @@ plugins: [
 ]
 ```
 
-Git message格式
---------------
+### Git message格式
 
 type(scope?): subject
 
@@ -93,8 +96,7 @@ type(scope?): subject
 ###### 例如： 
 fix(login): support sso login #1100
 
-CI构建
------
+### CI构建
 
 ```bash
 # install
@@ -118,6 +120,6 @@ git push --follow-tags
 npm run build
 ```
 
-示例项目
-------
+### 示例项目
+
 https://github.com/kimseongrim/hivue/tree/dev

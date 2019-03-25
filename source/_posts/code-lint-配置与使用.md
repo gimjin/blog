@@ -4,10 +4,15 @@ date: 2019-03-25 10:09:05
 tags:
 ---
 
-> code lint会在webpack编译、git commit、IDE（需安装相应的plugin）时检测。
-
-安装
+F2E代码检查标准
 ---
+
+[点击查看](https://www.icloud.com/keynote/0oBgKUHk13Cm-5D-5ccvduP5A#F2E%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5)
+
+部署与配置
+---
+
+### 安装
 
 ```bash
 # eslint
@@ -24,8 +29,7 @@ npm i -D husky lint-staged imagemin-lint-staged
 npm i -D eslint-loader postcss-loader
 ```
 
-目录结构
--------
+### 目录结构
 
 My Project
 |- .huskyrc.js
@@ -36,8 +40,7 @@ My Project
 |- postcss.config.js
 |- package.json
 
-配置文件
--------
+### 配置文件
 
 ```javascript
 // .huskyrc.js
@@ -145,6 +148,6 @@ rules: [
 ]
 ```
 
-完整示例
-------
+### 完整示例
+
 https://github.com/kimseongrim/hivue/tree/dev
