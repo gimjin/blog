@@ -119,7 +119,7 @@ module.exports = {
 ```
 
 ```javascript
-// package.json
+// webpack.config.js
 const prod = process.env.NODE_ENV === 'production'
 ...
 rules: [
