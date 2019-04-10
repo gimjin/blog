@@ -69,6 +69,9 @@ $ npm run serve
 + 'style-loader'
 ```
 
+**作业**
+上面都是把css字符串写入html中，请使用mini-css-extract-plugin生成.css文件引入到html。
+
 # 打包 .vue
 
 ```bash
