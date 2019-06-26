@@ -1,7 +1,7 @@
 ---
-title: 什么是 Viewport？
+title: 什么是 Viewport
 date: 2019-06-24 18:11:59
-tags: viewport
+tags: viewport, meta, css, px
 ---
 
 - [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta)解释：它提供有关视口初始大小的提示，仅供移动设备使用。
@@ -36,8 +36,8 @@ div {
 ---
 ### 🤓 实际求证
 ##### 用手机访问并点击下面两个链接，或在PC Chrome开发者工具中开启模拟设备选项查看效果。
-- <a href="{% asset_path viewport-on.html %}" target="_blank">Viewport On</a>
-- <a href="{% asset_path viewport-off.html %}" target="_blank">Viewport Off</a>
+- <a href="{% asset_path viewport-on.demo.html %}" target="_blank">Viewport On</a>
+- <a href="{% asset_path viewport-off.demo.html %}" target="_blank">Viewport Off</a>
 
 ##### 对比效果
 {% asset_img chrome-diff.png chrome-diff %}
