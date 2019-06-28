@@ -1,0 +1,30 @@
+<div id="app"></div>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex@3.1.1/dist/vuex.js"></script>
+<script>
+let store = new Vuex.Store({
+  state: {
+    age: 0
+  },
+  mutations: {
+    UPDATE_AGE (state, newAge) {
+      state.age = newAge
+    }
+  }
+})
+
+new Vue({
+  el: '#app',
+  template: `
+    <div>{{ age }}<div>
+  `,
+  computed: {
+    age () {
+      return store.state.age
+    }
+  },
+  mounted () {
+    store.commit('UPDATE_AGE', 18)
+  }
+})
+</script>
