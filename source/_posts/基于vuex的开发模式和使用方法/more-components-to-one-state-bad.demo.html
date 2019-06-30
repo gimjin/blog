@@ -1,0 +1,49 @@
+<meta charset="utf-8">
+<div id="app"></div>
+<hr>
+<h3>问题：</h3>
+<ul>
+  <li>Avatar 与 Profile 兄弟组件之间传递状态困难，而且需要对原 Component 进行改造</li>
+  <li>Detail 在其他视图中单独使用时 prop 状态从何而来</li>
+</ul>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script>
+  Vue.component('Avatar', {
+    template: `
+      <div>
+        <img src="minor.png">
+      </div>
+    `
+  })
+  Vue.component('Profile', {
+    data () {
+      return {
+        age: 0
+      }
+    },
+    template: `
+      <div>
+        Age: <input type="range" v-model="age">
+        <detail :age="age" />
+      </div>
+    `
+  })
+  Vue.component('Detail', {
+    props: ['age'],
+    template: `
+      <div>
+        I am <b>{{ age }}</b> years old.
+      </div>
+    `
+  })
+
+  new Vue({
+    el: '#app',
+    template: `
+      <div>
+        <avatar />
+        <profile />
+      </div>
+    `
+  })
+</script>

@@ -1,0 +1,48 @@
+<meta charset="utf-8">
+<div id="app"></div>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex@3.1.1/dist/vuex.js"></script>
+<script>
+let store = new Vuex.Store({
+  state: {
+    age: 0
+  },
+  mutations: {
+    UPDATE_AGE (state, newAge) {
+      state.age = newAge
+    }
+  },
+  actions: {
+    updateProfile ({ commit }) {
+      setTimeout(() => {
+        commit('UPDATE_AGE', 18)
+      }, 2000)
+    }
+  },
+  getters: {
+    stage: state => {
+      return state.age < 18 ? 'minor' : 'major'
+    }
+  }
+})
+
+new Vue({
+  el: '#app',
+  template: `
+    <div>
+      {{ age }} years old is {{ stage }}.
+    </div>
+  `,
+  computed: {
+    age () {
+      return store.state.age
+    },
+    stage () {
+      return store.getters.stage
+    }
+  },
+  mounted () {
+    store.dispatch('updateProfile')
+  }
+})
+</script>
