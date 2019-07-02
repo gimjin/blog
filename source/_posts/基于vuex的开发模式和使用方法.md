@@ -43,58 +43,50 @@ tags: vue, vuex, redux, storage, 开发模式, 范式, Normalizr, Vuex-ORM
 ##### Vuex “工作原理” 示意图：
 {% asset_img vuex.png vuex工作原理 %}
 
-<div style="display: flex; flex-direction: row;">
-  <div style="flex: 1;">
-    用代码看 “工作原理”
-    ```javascript
-    new Vue({
-      template: `
-        <div>
-          {{ age }} years old is {{ stage }}.
-        </div>
-      `,
-      computed: {
-        age () {
-          return store.state.age
-        },
-        stage () {
-          return store.getters.stage
-        }
-      },
-      mounted () {
-        store.dispatch('updateProfile')
-      }
-    })
-    ```
-  </div>
-  <div style="flex: 1;">
-    <a href="{% asset_path vuex-workflow.demo.html %}" target="_blank" style="flex: 1;">运行代码</a>
-    ```javascript
-    new Vuex.Store({
-      state: {
-        age: 0
-      },
-      mutations: {
-        UPDATE_AGE (state, newAge) {
-          state.age = newAge
-        }
-      },
-      actions: {
-        updateProfile ({ commit }) {
-          setTimeout(() => {
-            commit('UPDATE_AGE', 18)
-          }, 2000)
-        }
-      },
-      getters: {
-        stage: state => {
-          return state.age < 18 ? 'minor' : 'major'
-        }
-      }
-    })
-    ```
-  </div>
-</div>
+<a href="{% asset_path vuex-workflow.demo.html %}" target="_blank" style="flex: 1;">运行代码</a>
+```javascript
+new Vuex.Store({
+  state: {
+    age: 0
+  },
+  mutations: {
+    UPDATE_AGE (state, newAge) {
+      state.age = newAge
+    }
+  },
+  actions: {
+    updateProfile ({ commit }) {
+      setTimeout(() => {
+        commit('UPDATE_AGE', 18)
+      }, 2000)
+    }
+  },
+  getters: {
+    stage: state => {
+      return state.age < 18 ? 'minor' : 'major'
+    }
+  }
+})
+
+new Vue({
+  template: `
+    <div>
+      {{ age }} years old is {{ stage }}.
+    </div>
+  `,
+  computed: {
+    age () {
+      return store.state.age
+    },
+    stage () {
+      return store.getters.stage
+    }
+  },
+  mounted () {
+    store.dispatch('updateProfile')
+  }
+})
+```
 
 ---
 ### 使用 Vuex 前后对比：
@@ -160,10 +152,10 @@ tags: vue, vuex, redux, storage, 开发模式, 范式, Normalizr, Vuex-ORM
 
 - **多个视图依赖于同一状态**。
   传参的方法对于多层嵌套的组件将会非常繁琐，并且对于兄弟组件间的状态传递无能为力。
-  <a href="{% asset_path more-components-to-one-state-bad.demo.html %}" target="_blank">单向数据流</a> | <a href="{% asset_path more-components-to-one-state-good.demo.html %}" target="_blank">共享数据流</a>
+  案例：<a href="{% asset_path more-components-to-one-state.demo.html %}" target="_blank">问题还原</a> | <a href="{% asset_path more-components-to-one-state-bad.demo.html %}" target="_blank">传递状态</a> | <a href="{% asset_path more-components-to-one-state-good.demo.html %}" target="_blank">共享状态</a>
 - **来自不同视图的行为需要变更同一状态**。
   我们经常会采用父子组件直接引用或者通过事件来变更和同步状态的多份拷贝。以上的这些模式非常脆弱，通常会导致无法维护的代码。
-  <a href="{% asset_path more-actions-to-one-state-bad.demo.html %}" target="_blank">单向数据流</a> | <a href="{% asset_path more-actions-to-one-state-good.demo.html %}" target="_blank">共享数据流</a>
+  案例：<a href="{% asset_path more-actions-to-one-state.demo.html %}" target="_blank">问题还原</a> | <a href="{% asset_path more-actions-to-one-state-bad.demo.html %}" target="_blank">传递状态</a> | <a href="{% asset_path more-actions-to-one-state-good.demo.html %}" target="_blank">共享状态</a>
 
 ---
 ### 范式化 State

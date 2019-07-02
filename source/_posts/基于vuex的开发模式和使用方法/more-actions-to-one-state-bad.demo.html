@@ -1,37 +1,14 @@
 <meta charset="utf-8">
 <div id="app"></div>
-<hr>
 <h3>问题：</h3>
 <ul>
-  <li>改造 Profile 需要增加 prop 来接收状态，也需要增加响应父级事件的 emit</li>
-  <li>改造 Editor 需要增加 on 事件绑定来改变自身 data</li>
-  <li>这种改造是毁灭性的，想象上面两个组件在其他视图中已被使用 n 次</li>
-  <li>Components 之间的层级因传递数据而变得很糟糕，项目将越来越不可维护</li>
-  <li>如果用 Event Bus 会解决嵌套层级的问题，但会产生多份拷贝，每次修改 state 都需要手动 emit</li>
-  <li>更不用说 <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#访问子组件实例或子元素" target="_blank">逃生舱 Refs</a> 来同步状态</li>
+  <li>如果 RangeEditor 和 TextEditor 在其他视图已被使用多次。对 Component 内部代码改动是毁灭性的。</li>
+  <li>如果用 Vue-Bus 会解决嵌套层级的问题，但会产生多份拷贝，每次修改 state 都需要手动 emit</li>
+  <li>更不用说 <a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#访问子组件实例或子元素" target="_blank">非响应试逃生舱 Refs</a> 来同步状态</li>
 </ul>
 <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
 <script>
-  Vue.component('Profile', {
-    props: ['propAge'],
-    template: `
-      <div>
-        Age: <input type="range" v-model.lazy="age">
-        <detail :age="age" />
-      </div>
-    `,
-    computed: {
-      age: {
-        get: function () {
-          return this.propAge
-        },
-        set: function (v) {
-          this.$emit('changed', v)
-        }
-      }
-    }
-  })
-  Vue.component('Editor', {
+  Vue.component('RangeEditor', {
     data () {
       return {
         age: 0
@@ -39,17 +16,40 @@
     },
     template: `
       <div>
-        Age: <input type="text" v-model="age">
-        <profile :prop-age="age" @changed="update" />
+        <profile :age="age" />
+        <hr>
+        <input type="range" max="36" v-model.lazy="age">
+        <text-editor :set-age="age" @changed="update" /> <!-- edit -->
       </div>
     `,
     methods: {
       update: function (v) {
-        this.age = v
+        this.age = v // @changed事件触发时，更新自己的状态
       }
     }
   })
-  Vue.component('Detail', {
+  Vue.component('TextEditor', {
+    props: ['setAge'], // 增加 prop 来接收状态
+    data () {
+      return {
+        age: 0
+      }
+    },
+    template: `
+      <div>
+        <input type="text" v-model.lazy="age">
+      </div>
+    `,
+    watch: {
+      age: function (age, oldAge) {
+        this.$emit('changed', age) // age 发生变化时向父级传递状态
+      },
+      setAge: function (age, oldAge) {
+        this.age = age // 接收到 setAge 时，改变自己的状态
+      }
+    }
+  })
+  Vue.component('Profile', {
     props: ['age'],
     template: `
       <div>
@@ -62,7 +62,7 @@
     el: '#app',
     template: `
       <div>
-        <editor />
+        <range-editor />
       </div>
     `
   })

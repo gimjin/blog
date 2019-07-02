@@ -1,21 +1,23 @@
 <meta charset="utf-8">
 <div id="app"></div>
-<hr>
 <h3>问题：</h3>
 <ul>
-  <li>Avatar 与 Profile 兄弟组件之间传递状态困难，而且需要对原 Component 进行改造</li>
-  <li>Detail 在其他视图中单独使用时 prop 状态从何而来</li>
+  <li>Avatar 已在其他视图中使用，增加的 prop 逻辑报错</li>
+  <li>一个 Component 报错不怕，如果其他更多 Component 用了 Avatar 的状态是不是个灾难</li>
+  <li>为了传递 state 出现类似 age 状态和传递事件与函数</li>
+  <li>无法做到高内聚低耦合、增强可重用性、移植性</li>
 </ul>
 <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
 <script>
   Vue.component('Avatar', {
+    props: ['age'], // 接收 prop
     template: `
       <div>
-        <img src="minor.png">
+        <img :src="age < 18 ? 'minor.png' : 'major.png'"> <!-- edit -->
       </div>
-    `
+    ` // 对 prop 逻辑处理
   })
-  Vue.component('Profile', {
+  Vue.component('RangeEditor', {
     data () {
       return {
         age: 0
@@ -23,12 +25,18 @@
     },
     template: `
       <div>
-        Age: <input type="range" v-model="age">
-        <detail :age="age" />
+        <profile :age="age" />
+        <hr>
+        <input type="range" max="36" v-model.lazy="age">
       </div>
-    `
+    `,
+    watch: { // 监听状态，触发 @changed 事件，向父级传递状态
+      age: function (age, oldAge) {
+        this.$emit('changed', age)
+      }
+    }
   })
-  Vue.component('Detail', {
+  Vue.component('Profile', {
     props: ['age'],
     template: `
       <div>
@@ -39,11 +47,21 @@
 
   new Vue({
     el: '#app',
+    data () { // 为兄弟组件传递状态而创建
+      return {
+        age: 0
+      }
+    },
     template: `
       <div>
-        <avatar />
-        <profile />
+        <avatar :age="age" />
+        <range-editor @changed="update" />
       </div>
-    `
+    `, // 绑定事件 和 传递 age prop
+    methods: { // 状态传递函数
+      update: function (v) {
+        this.age = v
+      }
+    }
   })
 </script>

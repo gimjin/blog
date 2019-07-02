@@ -1,0 +1,53 @@
+<meta charset="utf-8">
+<div id="app"></div>
+<h3>问题：</h3>
+<ul>
+  <li>RangeEditor 与 TextEditor 的行为，变更 Profile 的状态。</li>
+</ul>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script>
+  Vue.component('RangeEditor', {
+    data () {
+      return {
+        age: 0
+      }
+    },
+    template: `
+      <div>
+        <profile :age="age" />
+        <hr>
+        <input type="range" max="36" v-model.lazy="age">
+        <text-editor />
+      </div>
+    `
+  })
+  Vue.component('TextEditor', {
+    data () {
+      return {
+        age: 0
+      }
+    },
+    template: `
+      <div>
+        <input type="text" v-model.lazy="age">
+      </div>
+    `
+  })
+  Vue.component('Profile', {
+    props: ['age'],
+    template: `
+      <div>
+        I am <b>{{ age }}</b> years old.
+      </div>
+    `
+  })
+
+  new Vue({
+    el: '#app',
+    template: `
+      <div>
+        <range-editor />
+      </div>
+    `
+  })
+</script>

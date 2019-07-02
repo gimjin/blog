@@ -1,0 +1,48 @@
+<meta charset="utf-8">
+<div id="app"></div>
+<h3>问题：</h3>
+<ul>
+  <li>Avatar 与 Profile 依赖于 RangeEditor 的状态。</li>
+</ul>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script>
+  Vue.component('Avatar', {
+    template: `
+      <div>
+        <img src="minor.png">
+      </div>
+    `
+  })
+  Vue.component('RangeEditor', {
+    data () {
+      return {
+        age: 0
+      }
+    },
+    template: `
+      <div>
+        <profile :age="age" />
+        <hr>
+        <input type="range" max="36" v-model.lazy="age">
+      </div>
+    `
+  })
+  Vue.component('Profile', {
+    props: ['age'],
+    template: `
+      <div>
+        I am <b>{{ age }}</b> years old.
+      </div>
+    `
+  })
+
+  new Vue({
+    el: '#app',
+    template: `
+      <div>
+        <avatar />
+        <range-editor />
+      </div>
+    `
+  })
+</script>
