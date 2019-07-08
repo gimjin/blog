@@ -62,6 +62,8 @@ output: {
 如果是用 webpack-dev-server 中调试代码，需要修改如下配置才能正常访问。
 
 ```javascript
+const history = require('connect-history-api-fallback')
+
 devServer: {
   publicPath: '/app-one/', // <= 配置
   before (app) {
