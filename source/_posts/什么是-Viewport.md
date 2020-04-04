@@ -19,10 +19,10 @@ tags: viewport, meta, css, px
 
 为了便于理解我准备了如下表格两个虚拟设备 A 和 B
 
-| 设备 | 屏幕尺寸 cm | 设备像素 pixel | CSS像素 pixel | 像素比 DPR(devicePixelRatio) |
-| --- | --- | --- | --- | --- |
-| 设备A | 2 x 2 | 8 x 8 | 4 x 4 | 2 |
-| 设备B | 2 x 2 | 4 x 4 | 4 x 4 | 1 |
+| 设备 | 设备像素 | CSS像素 | 像素比DPR |
+| --- | --- | --- | --- |
+| 设备A | 8 x 8 | 4 x 4 | 2 |
+| 设备B | 4 x 4 | 4 x 4 | 1 |
 
 {% asset_img viewport-demo.png viewport-demo %}
 
