@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checks-out
+        uses: actions/checkout@v2
       # The hosted images have been updated with the latest of each LTS from v8, v10, v12, and v14.
       - name: Change Node version
         uses: actions/setup-node@v1
@@ -17,7 +18,7 @@ jobs:
           node-version: '12'
       # Simulation
       - name: Test
-        run: echo Skip test
+        run: echo 'Skip test'
       # Building
       - name: Build
         env:
@@ -28,7 +29,19 @@ jobs:
           npx hexo generate
       # Building
       - name: Deploy
-        uses: actions/labeler@v2
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-        run: npx hexo deploy
+        run: |
+          echo '${ GITHUB_ACTOR }'
+          echo '${{ GITHUB_ACTOR }}'
+          echo '${{ secrets.GITHUB_ACTOR }}'
+          echo '${{ secrets.GITHUB_TOKEN }}'
+        # run: |
+        #   cd './public'
+        #   git init
+        #   git config user.name 'kimseongrim'
+        #   git config user.email 'kimseongrim@qq.com'
+        #   git remote add origin 'https://${{ secrets.GITHUB_TOKEN }}@github.com/kimseongrim/kimseongrim.github.io.git'
+        #   git checkout --orphan master
+        #   git add --all
+        #   git commit --allow-empty -m 'Deploying to master'
+        #   git push origin master --force
+        #   echo 'Deployment succesful!'
