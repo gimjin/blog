@@ -30,7 +30,6 @@ jobs:
       # Building
       - name: Deploy
         run: |
-          echo '${{ GITHUB_ACTOR }}'
           echo '${{ secrets.GITHUB_ACTOR }}'
           echo '${{ secrets.GITHUB_TOKEN }}'
         # run: |
