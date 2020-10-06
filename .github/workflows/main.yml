@@ -17,14 +17,14 @@ jobs:
         with:
           node-version: '12'
       # Simulation
-      - name: Test
-        run: echo 'Skip test'
+      # - name: Test
+      #   run: echo 'Skip test'
       # Building
-      - name: Generate
-        run: |
-          npm install
-          npx hexo clean
-          npx hexo generate
+      # - name: Generate
+      #   run: |
+      #     npm install
+      #     npx hexo clean
+      #     npx hexo generate
       # Building
       - name: Deploy
         env:
@@ -36,6 +36,9 @@ jobs:
           git init
           git config user.name $USER_NAME
           echo $USER_NAME
+          echo '$USER_NAME'
+          echo '${ USER_NAME }'
+          echo '${{ USER_NAME }}'
           git config user.email $USER_EMAIL
           git remote add origin 'https://$GITHUB_TOKEN@github.com/kimseongrim/kimseongrim.github.io.git'
           git checkout --orphan master
