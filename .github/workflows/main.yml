@@ -28,4 +28,7 @@ jobs:
           npx hexo generate
       # Building
       - name: Deploy
+        uses: actions/labeler@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
         run: npx hexo deploy
