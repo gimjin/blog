@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 12
       - name: Test
-        run: echo Skip test
+        run: echo 'Skip test'
       - name: Generate
         run: |
           npm install
@@ -36,6 +36,6 @@ jobs:
           git remote add origin https://$HEXO_REPO_TOKEN@github.com/kimseongrim/kimseongrim.github.io.git
           git checkout --orphan master
           git add --all
-          git commit --allow-empty -m GitHub actions deploy blog
+          git commit --allow-empty -m 'GitHub actions deploy blog'
           git push origin master --force
-          echo Deployment succesful
+          echo 'Deployment succesful'
