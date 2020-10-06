@@ -31,9 +31,9 @@ jobs:
           git init
           git config user.name kimseongrim
           git config user.email kimseongrim@qq.com
-          git remote add origin git+https://$GITHUB_TOKEN@github.com/kimseongrim/kimseongrim.github.io.git
+          git remote add origin https://c02c0551aca805ef061b0dbf89108ba4179fec9a@github.com/kimseongrim/kimseongrim.github.io.git
           git checkout --orphan master
           git add --all
-          git commit --allow-empty -m 'Deploying to master'
+          git commit --allow-empty -m 'Deploying blog'
           git push origin master --force
           echo 'Deployment succesful!'
