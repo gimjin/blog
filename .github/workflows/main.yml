@@ -34,6 +34,7 @@ jobs:
           USER_EMAIL: kimseongrim@qq.com
         run: |
           echo $USER_NAME
+          echo https://$GITHUB_TOKEN@github.com/kimseongrim/kimseongrim.github.io.git
         # run: |
         #   cd './public'
         #   git init
