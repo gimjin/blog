@@ -1,4 +1,4 @@
-name: CI/CD
+name: generate-and-deploy
 
 on:
   push:

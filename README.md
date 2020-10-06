@@ -1,3 +1,5 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kimseongrim/blog/generate-and-deploy)
+
 Generate Blog
 -------------
 
