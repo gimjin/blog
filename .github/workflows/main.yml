@@ -25,13 +25,13 @@ jobs:
           npx hexo generate
       - name: Deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEXO_REPO_TOKEN: ${{ secrets.HEXO_REPO_TOKEN }}
         run: |
           cd ./public
           git init
           git config user.name kimseongrim
           git config user.email kimseongrim@qq.com
-          git remote add origin https://a4c3c21ebe541fa47d180f59f6046fac7af3c5ab@github.com/kimseongrim/kimseongrim.github.io.git
+          git remote add origin https://$HEXO_REPO_TOKEN@github.com/kimseongrim/kimseongrim.github.io.git
           git checkout --orphan master
           git add --all
           git commit --allow-empty -m 'Deploying blog 3'
