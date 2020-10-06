@@ -27,7 +27,7 @@ jobs:
       - name: Change Node version
         uses: actions/setup-node@v1
         with:
-          node-version: lts/erbium
+          node-version: '12'
       # Building
       - name: npm install, build
         env:
