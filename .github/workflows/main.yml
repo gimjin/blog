@@ -35,8 +35,6 @@ jobs:
           cd './public'
           git init
           git config user.name $USER_NAME
-          echo $USER_NAME
-          echo '$USER_NAME'
           echo '${ USER_NAME }'
           echo '${{ USER_NAME }}'
           git config user.email $USER_EMAIL
