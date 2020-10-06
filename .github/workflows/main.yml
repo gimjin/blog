@@ -25,21 +25,15 @@ jobs:
           npx hexo generate
       - name: Deploy
         env:
-          DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USER_NAME: kimseongrim
-          USER_EMAIL: kimseongrim@qq.com
-        # run: |
-        #   echo $USER_NAME
-        #   echo https://$GITHUB_TOKEN@github.com/kimseongrim/kimseongrim.github.io.git
         run: |
-          cd './public'
+          cd ./public
           git init
-          git config user.name $USER_NAME
-          git config user.email $USER_EMAIL
+          git config user.name kimseongrim
+          git config user.email kimseongrim@qq.com
           git remote add origin https://$GITHUB_TOKEN@github.com/kimseongrim/kimseongrim.github.io.git
-          git checkout --orphan $DEFAULT_BRANCH
+          git checkout --orphan master
           git add --all
           git commit --allow-empty -m 'Deploying to master'
-          # git push origin master --force
+          git push origin master --force
           echo 'Deployment succesful!'
