@@ -21,20 +21,22 @@ jobs:
         run: echo 'Skip test'
       # Building
       - name: Generate
-        env:
-          CI: true
         run: |
           npm install
           npx hexo clean
           npx hexo generate
       # Building
       - name: Deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USER_NAME: 'kimseongrim'
+          USER_EMAIL: 'kimseongrim@qq.com'
         run: |
           cd './public'
           git init
-          git config user.name 'kimseongrim'
-          git config user.email 'kimseongrim@qq.com'
-          git remote add origin 'https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kimseongrim/kimseongrim.github.io.git'
+          git config user.name '${ USER_NAME }'
+          git config user.email '${ USER_EMAIL }'
+          git remote add origin 'https://${ GITHUB_TOKEN }@github.com/kimseongrim/kimseongrim.github.io.git'
           git checkout --orphan master
           git add --all
           git commit --allow-empty -m 'Deploying to master'
