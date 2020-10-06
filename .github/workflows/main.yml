@@ -25,6 +25,8 @@ jobs:
           npx hexo generate
       - name: Deploy
         env:
+          # Create token (https://github.com/settings/tokens)
+          # Setting secrets HEXO_REPO_TOKEN from token (https://github.com/kimseongrim/blog/settings/secrets)
           HEXO_REPO_TOKEN: ${{ secrets.HEXO_REPO_TOKEN }}
         run: |
           cd ./public
@@ -34,6 +36,6 @@ jobs:
           git remote add origin https://$HEXO_REPO_TOKEN@github.com/kimseongrim/kimseongrim.github.io.git
           git checkout --orphan master
           git add --all
-          git commit --allow-empty -m 'Deploying blog 3'
+          git commit --allow-empty -m 'GitHub actions deploy blog.'
           git push origin master --force
           echo 'Deployment succesful!'
