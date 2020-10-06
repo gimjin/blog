@@ -20,7 +20,7 @@ jobs:
       - name: Test
         run: echo 'Skip test'
       # Building
-      - name: Build
+      - name: Generate
         env:
           CI: true
         run: |
@@ -30,16 +30,13 @@ jobs:
       # Building
       - name: Deploy
         run: |
-          echo '${{ secrets.GITHUB_ACTOR }}'
-          echo '${{ secrets.GITHUB_TOKEN }}'
-        # run: |
-        #   cd './public'
-        #   git init
-        #   git config user.name 'kimseongrim'
-        #   git config user.email 'kimseongrim@qq.com'
-        #   git remote add origin 'https://${{ secrets.GITHUB_TOKEN }}@github.com/kimseongrim/kimseongrim.github.io.git'
-        #   git checkout --orphan master
-        #   git add --all
-        #   git commit --allow-empty -m 'Deploying to master'
-        #   git push origin master --force
-        #   echo 'Deployment succesful!'
+          cd './public'
+          git init
+          git config user.name 'kimseongrim'
+          git config user.email 'kimseongrim@qq.com'
+          git remote add origin 'https://${{ secrets.GITHUB_TOKEN }}@github.com/kimseongrim/kimseongrim.github.io.git'
+          git checkout --orphan master
+          git add --all
+          git commit --allow-empty -m 'Deploying to master'
+          git push origin master --force
+          echo 'Deployment succesful!'

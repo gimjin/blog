@@ -6,7 +6,7 @@
 title: 夏尔猫叔's Blog
 subtitle: 前端工程师技术文章
 description: 前端工程师技术文章
-keywords: f2e, vue, react, html, css, javascript, web, 前端, blog
+keywords: f2e, vue, react, html, css, javascript, web, CI/CD, 前端, blog
 author: 夏尔猫叔
 language: zh-Hans
 timezone: Asia/Shanghai
@@ -43,7 +43,7 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -52,7 +52,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -74,10 +74,3 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: landscape
-
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: https://github.com/kimseongrim/kimseongrim.github.io.git
-  branch: master
