@@ -16,16 +16,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12'
-      # Simulation
-      # - name: Test
-      #   run: echo 'Skip test'
-      # Building
-      # - name: Generate
-      #   run: |
-      #     npm install
-      #     npx hexo clean
-      #     npx hexo generate
-      # Building
+      - name: Test
+        run: echo 'Skip test'
+      - name: Generate
+        run: |
+          npm install
+          npx hexo clean
+          npx hexo generate
       - name: Deploy
         env:
           DEFAULT_BRANCH: master
