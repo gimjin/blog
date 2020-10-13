@@ -10,11 +10,11 @@ tags: git flow, github flow, gitlab flow, git
 
 当您从事一个项目时，您将拥有许多不同的 features 或 ideas（任何给定的时间内 - 其中一些准备就绪，而另一些则没有）。分支可帮助您管理此工作流程。
 
-当您在项目中创建分支时，就是在创建尝试新想法的环境。您在分支上所做的更改不会影响主分支，因此您可以自由地进行试验和提交更改，因为您可以知道自己的分支不会被合并，直到准备好供您与之合作的人进行审核为止，这是安全的。
+当您在项目中创建分支时，就是在创建尝试新想法的环境。您在分支上所做的更改不会影响主分支，因此您**可以自由地进行试验和提交更改**，因为您可以知道自己的分支不会被合并， **直到 Maintainer 审核为止，这是安全** 的。
 
 #### ProTip
 
-分支是 Git 中的核心概念，整个 GitLab flow 都以此为基础。 <b>只有一条规则：LTS(Long Time Support) 分支中的任何内容始终都是可部署的</b>。
+分支是 Git 中的核心概念，整个 GitLab flow 都以此为基础。 **只有一条规则：LTS(Long Time Support) 分支中的任何内容始终都是可部署** 的。
 
 因此，在处理 feature 或 fix 时，要从 LTS branch 之外创建新分支是非常重要的。 您的分支名称应该是描述性的（例如，refactor-authentication, user-content-cache-key, make-retina-avatars），以便其他人可以看到正在处理的内容。
 
@@ -52,7 +52,7 @@ Merge Requests 启动有关提交的讨论。 因为它们与基础 Git 存储�
 
 ## Discuss and review your code
 
-打开 Merge Request 后，审阅您的更改的人员或团队可能会有疑问或意见。 可能是编码风格与项目指南不符，更改缺少单元测试，或者看起来一切都很好，并且道具井井有条。Merge Requests 旨在鼓励和捕获这种类型的对话。
+打开 Merge Request 后，审阅您的 changes 的 Maintainer 或 Team 可能会有疑问或意见。 可能是编码风格与项目指南不符，更改缺少单元测试，或者看起来一切都很好，并且道具井井有条。Merge Requests 旨在鼓励和捕获这种类型的对话。
 
 您还可以根据有关提交的讨论和反馈中直接把修改推送到分支。如果有人评论您忘记做某事，或者代码中有错误，您可以在 branch 中对其进行 fix，并 push 更改。GitLab 将在统一的 Merge Request 视图中显示您的新提交以及您可能收到的任何其他反馈。
 
@@ -82,7 +82,7 @@ Merge Requests 注释使用 Markdown 编写，因此您可以嵌入图像和表�
 
 ## Merge
 
-现在您的更改已在生产环境中得到验证，是时候将您的代码合并到 LTS Branch 中了。
+现在您的 Changes 已在生产环境中得到验证，是时候将您的代码合并到 LTS Branch 中了。为了保证 LTS Branch 可靠性和扩展性 **只有 Maintainer 才有权限 Merge** 。
 
 合并后，Merge Requests 将保留代码历史更改的记录。 因为它们是可搜索的，可以让任何人回到过去，了解做出决定的原因和方式。
 
