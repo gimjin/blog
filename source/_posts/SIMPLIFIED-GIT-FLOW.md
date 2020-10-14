@@ -6,17 +6,18 @@ tags: git flow, github flow, gitlab flow, git
 
 <p>{% asset_img github-flow-create-branch.png github-flow-create-branch %}</p>
 
-## Create a branch
+## Create a branch / [Fork a repo](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork)
 
-当您从事一个项目时，您将拥有许多不同的 features 或 ideas（任何给定的时间内 - 其中一些准备就绪，而另一些则没有）。分支可帮助您管理此工作流程。
 
-当您在项目中创建分支时，就是在创建尝试新想法的环境。您在分支上所做的更改不会影响主分支，因此您**可以自由地进行试验和提交更改**，因为您可以知道自己的分支不会被合并， **直到 Maintainer 审核为止，这是安全** 的。
+当您从事一个项目时，您将拥有许多不同的 features 或 ideas（任何给定的时间内 - 其中一些准备就绪，而另一些则没有）。
+
+当您在项目中 Create a branch / Fork a repo，就是在创建尝试环境。您在尝试环境中所做的更改不会影响 LTS Branch，因此您**可以自由地进行试验和提交更改**，因为您可以知道当前环境不会被合并， **直到 Maintainer 审核为止，这是安全** 的。
 
 #### ProTip
 
-分支是 Git 中的核心概念，整个 GitLab flow 都以此为基础。 **只有一条规则：LTS(Long Time Support) 分支中的任何内容始终都是可部署** 的。
+Branch 是 Git 中的核心概念，整个 GitLab flow 都以此为基础。 **只有一条规则：LTS(Long Time Support) 分支中的任何内容始终都是可部署** 的。
 
-因此，在处理 feature 或 fix 时，要从 LTS branch 之外创建新分支是非常重要的。 您的分支名称应该是描述性的（例如，refactor-authentication, user-content-cache-key, make-retina-avatars），以便其他人可以看到正在处理的内容。
+因此，在处理 feature 或 fix 时，要从 LTS branch 之外 Create a branch / Fork a repo 是非常重要的。 您的分支名称应该是描述性的（例如，refactor-authentication, user-content-cache-key, make-retina-avatars），以便其他人可以从名称中看到正在处理的内容。
 
 ---
 
@@ -40,11 +41,18 @@ Commit messages 非常重要，特别是因为 Git 会跟踪您的更改，然�
 
 ## Open a Merge Request
 
-Merge Requests 启动有关提交的讨论。 因为它们与基础 Git 存储库紧密集成，所以任何人都可以确切地看到接受您的请求将被合并的更改。
+Merge Requests 启动有关 Commits 的讨论。 因为它们与基础 Git 存储库紧密集成，如果 Maintainer 接受您的请求，将会合并 Changes。
+
+您可以在开发过程中的任何时候打开 Merge Requests：
+- 当您只有很少的代码或根本没有代码，只想分享一些屏幕截图或一般性想法时
+- 当您陷入困境并需要帮助或建议时
+- 当您准备好让他人查看您的工作时
 
 #### ProTip
 
-如果您使用的是 Fork([创建 Fork](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork))，则 Merge Requests 提供了一种通知项目维护者您希望他们考虑的更改的方法。如果您使用的是 Shared Repository，则可在合并到主分支之前帮助您代码审查和有关建议更改的讨论。
+Fork a repo 可以帮助您创建个人尝试环境，您随时可以用仅包含自己的 Changes 代码 Open a Merge Request 合并到 LTS Branch。而不会像 Create a branch 那样等待其他人的代码稳定。
+
+通过在 Merge Requests 消息中使用 GitLab @mention 系统，您可以要求特定人员或团队提供反馈。
 
 ---
 
