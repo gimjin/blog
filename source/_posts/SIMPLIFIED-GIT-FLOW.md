@@ -6,7 +6,7 @@ tags: git flow, github flow, gitlab flow, git
 
 ## 1) Why we need GitLab flow？
 
-GitLab Flow 是一个轻量级**优秀的合作方式**，基于 Branch 的工作流中共同解决问题，提出想法并在此过程中互相学习。它支持定期进行部署的团队和项目。本指南说明了GitLab Flow 的工作方式和原因。
+GitLab Flow 是更好的**团队轻量级合作方式**，基于 Branch 的工作流中共同解决问题，提出想法并在此过程中互相学习。它支持定期进行部署的团队和项目。本指南说明了GitLab Flow 的工作方式和原因。
 
 <p>{% asset_img team.svg team %}</p>
 
