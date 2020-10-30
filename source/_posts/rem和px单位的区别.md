@@ -62,7 +62,7 @@ ElementUI做响应式App非常优秀。
 
 甚至有些团队设置 font-size:10px，只是为了写代码时 px 与 rem 换算方便而已，这岂不是对视力残障人士的一种不负责任？
 
-{% asset_img mangren.jpg mangren %}
+![mangren.jpg](images/mangren.jpg)
 
 # 什么时候应该用 rem？
 
@@ -70,4 +70,4 @@ ElementUI做响应式App非常优秀。
 * 细线、位图使用 px 单位
 * 布局请不要持用 rem 或者 px，而是选择 element/bootstrap/... 框架中的 layout
 
-{% asset_img user-fe-be.png user-fe-be %}
+![user-fe-be.png](images/user-fe-be.png)

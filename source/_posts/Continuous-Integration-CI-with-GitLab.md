@@ -25,7 +25,7 @@ CI和CD必须共同努力以帮助您的团队快速有效的构建，这对于�
 
 #### CD/CI workflow
 
-<p>{% asset_img cicd_pipeline_infograph.png cicd_pipeline_infograph %}</p>
+![cicd_pipeline_infograph.png](images/cicd_pipeline_infograph.png)
 
 #### Continuous integration (CI)
 

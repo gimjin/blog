@@ -25,7 +25,7 @@ tags:
 
 这里的复杂性很大程度上来自于：我们总是将两个对人类思维非常难以**推理**(reason)的概念：**变化**(mutation)和**异步**(asynchronicity)。 我称它们为[曼妥思和可乐](https://www.baidu.com/s?wd=曼妥思和可乐)。如果把二者分开，能做的很好，但混到一起，就变得一团糟。
 
-```javascript
+```text
 a = 2
 a 3秒后变成 4
 b 1秒后变成 a
@@ -69,7 +69,8 @@ c ?秒后变成 a + b
   为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter。
 
 ##### Vuex “工作原理” 示意图：
-{% asset_img vuex.png vuex工作原理 %}
+
+![vuex.png](images/vuex.png)
 
 <a href="{% asset_path vuex-workflow.demo.html %}" target="_blank" style="flex: 1;">运行代码</a>
 ```javascript
@@ -119,7 +120,7 @@ new Vue({
 ---
 ### 使用 Vuex 前后对比：
 
-{% asset_img flow.png 数据流 %}
+![flow.png](images/flow.png)
 
 ##### 用代码看前后对比：
 
@@ -269,10 +270,10 @@ Vuex 附带了更多的概念和框架，这需要对**短期和长期效益进�
 ---
 ### Vuex 可能会改变开发模式
 
-{% asset_img abstract.jpg 应用抽象 %}
+![abstract.jpg](images/abstract.jpg)
 
 现在前后端分工越来越模糊，有些后端需要做的事情前端用 Nodejs 能实现，所以写 Javascript 不一定是前端开发人员。腾讯 CloudBase 团队接口用 Nodejs 实现每天10亿次访问8TB日志量，字节跳动的 “飞书” 在 electron 平台用 Nodejs 开发桌面客户端，Google 用 WebAssembly 技术 c++ 语言开发的 [Squoosh](https://squoosh.app/) 有完整的 Web UI 界面。
 
-{% asset_img mvvm.png 开发模式 %}
+![mvvm.png](images/mvvm.png)
 
 现在已经不能简单的用开发语言来明确 **前端** 还是 **后端**，需要 **更多的知识纬度** 会更加准确些。甚至有些时候已经分不清楚了。

@@ -11,7 +11,7 @@ tags:
 软硬件技术的高速发展成就了很多高分辨率的产品，但给用户带来了越来越小的内容（高分辨率 window 笔记本，应该深有体会）。
 我们真正需要的用户体验是，高分辨率带来的 **细腻的视觉体验** 和不同尺寸屏幕下呢个看到 **相同寸的内容**。
 
-{% asset_img diff.jpg diff %}
+![diff.jpg](images/diff.jpg)
 
 > Viewport 他来了，他可以完美解决上述问题
 
@@ -28,7 +28,7 @@ tags:
 | 设备A | 8 x 8 | 4 x 4 | 2 |
 | 设备B | 4 x 4 | 4 x 4 | 1 |
 
-{% asset_img viewport-demo.png viewport-demo %}
+![viewport-demo.png](images/viewport-demo.png)
 
 ##### 像素并非像素
 
@@ -39,18 +39,19 @@ tags:
 ---
 ### 📐原理图
 
-{% asset_img viewport.png viewport %}
+![viewport.png](images/viewport.png)
 
 ---
 ### 🤓 真机效果
 
-{% asset_img iphone-diff.png iphone-diff %}
+![iphone-diff.png](images/iphone-diff.png)
 
 ---
 ### 🖥 如何获得设备参数
 
 获取设备参数网址：[http://www.mydevice.io](http://www.mydevice.io)
-{% asset_img mydevice.png mydevice %}
+
+![mydevice.png](images/mydevice.png)
 
 ##### 或者用 Javascript 方法获得参数
 - DPR：window.devicePixelRatio
@@ -71,7 +72,7 @@ tags:
 
 **2，解读设计稿**
 
-{% asset_img design.png design %}
+![design.png](images/design.png)
 
 a，标题字号为 **150px**，设计稿相对应的 DPR 是 3，所以实际在代码中要写 50px。
 *转换公式：*<span style="color: red;">设备像素 / DPR = CSS像素</span>
