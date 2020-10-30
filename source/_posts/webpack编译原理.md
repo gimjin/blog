@@ -1,7 +1,18 @@
 ---
 title: webpack编译原理
 date: 2019-04-04 10:15:00
-tags: webpack, vue, react, javascript, scss, css, postcss, css-loader, style-loader, url-loader, file-loader
+tags:
+- webpack
+- vue
+- react
+- javascript
+- scss
+- css
+- postcss
+- css-loader
+- style-loader
+- url-loader
+- file-loader
 ---
 
 # 能说明Webpack的一张图

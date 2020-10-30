@@ -2,6 +2,10 @@
 title: code lint 配置与使用
 date: 2019-03-25 10:09:05
 tags:
+- eslint
+- stylelint
+- commitlint
+- lint
 ---
 
 F2E代码检查标准

@@ -2,6 +2,9 @@
 title: CI/CD 关键知识
 date: 2020-10-21 15:03:00
 tags:
+- gitlab
+- ci
+- cd
 ---
 
 ## 1) Continuous integration is built-in

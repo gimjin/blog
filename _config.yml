@@ -4,7 +4,7 @@
 
 # Site
 title: 夏尔猫叔's Blog
-subtitle: 前端工程师技术文章
+subtitle: 敏捷软件开发宣言前已宣誓✊
 description: 前端工程师技术文章
 keywords: f2e, vue, react, html, css, javascript, web, CI/CD, 前端, blog
 author: 夏尔猫叔
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

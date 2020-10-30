@@ -1,7 +1,12 @@
 ---
 title: Vuejs 应用配置 基路径
 date: 2019-07-06 13:03:21
-tags: Vuejs, base URL, webpack, publicPath, 基路径
+tags:
+- Vuejs
+- base URL
+- webpack
+- publicPath
+- 基路径
 ---
 
 微前端有时需要地址上加上下文来区别应用，或者服务器资源有限在一个端口启动多个应用。

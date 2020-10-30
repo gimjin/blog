@@ -1,7 +1,11 @@
 ---
 title: 什么是 Viewport
 date: 2019-06-24 18:11:59
-tags: viewport, meta, css, px
+tags:
+- viewport
+- meta
+- css
+- px
 ---
 
 软硬件技术的高速发展成就了很多高分辨率的产品，但给用户带来了越来越小的内容（高分辨率 window 笔记本，应该深有体会）。

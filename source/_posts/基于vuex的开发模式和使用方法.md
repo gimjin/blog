@@ -1,7 +1,15 @@
 ---
 title: 基于vuex的开发模式和使用方法
 date: 2019-06-26 14:56:01
-tags: vue, vuex, redux, storage, 开发模式, 范式, Normalizr, Vuex-ORM
+tags:
+- vue
+- vuex
+- redux
+- storage
+- 开发模式
+- 范式
+- Normalizr
+- Vuex-ORM
 ---
 
 > Vuex 是一个专为 Vue.js 应用程序开发的**状态容器**，提供**可预测化的状态管理**。可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试和超爽的开发体验。
@@ -152,7 +160,7 @@ new Vue({
         store.commit('UPDATE_AGE', 18)
       }
     })
-    
+
     new Vuex.Store({
       state: {
         age: 0
