@@ -1,7 +1,11 @@
 ---
 title: GitLab flow 指南
 date: 2020-10-13 17:45:21
-tags: git flow, github flow, gitlab flow, git
+tags:
+- git
+- flow
+- github flow
+- git
 ---
 
 ## 1) Why we need GitLab flow？
@@ -57,7 +61,7 @@ Merge Requests 启动有关 Commits 的讨论。 因为它们与基础 Git 存�
 
 Fork a repo 可以帮助您创建个人尝试环境，您随时可以用仅包含自己的 Changes 代码 Open a Merge Request 合并到 LTS Branch。而不会像 Create a branch 那样等待其他人的代码稳定。
 
-通过在 Merge Requests 消息中使用 GitLab @mention 系统，您可以要求特定人员或团队提供反馈。
+通过在 Merge Requests 消息中使用 GitLab @user 系统，您可以要求特定人员或团队提供反馈。
 
 ### Discuss and review your code
 
@@ -75,11 +79,9 @@ Merge Requests 注释使用 Markdown 编写，因此您可以嵌入图像和表�
 
 <p>{% asset_img github-flow-deploy.png github-flow-deploy %}</p>
 
-借助 GitLab，您可以从 Branch 进行部署，以在正式生产之前进行最终测试。
+合并到 LTS branch 之前，您可以从 Branch 部署到测试环境中进行最终自测。
 
-一旦审查了 Merge Requests 并且 Branch 通过了测试，就可以部署在生产中进行验证。 如果分支引起问题，当前 LTS branch 回滚后部署生产环境。
-
-不同的团队可能有不同的部署策略。 对于某些人来说，最好将其部署到专门配置的测试环境中。对于其他人，基于工作流程直接部署到生产可能是更好的选择。
+当复查过 Merge Requests 并且 Branch 通过了最终自测，您可以部署 Changes 到测试环境中进行验证。如果是 Branch 引起了问题，您可以通过回滚 LTS branch 部署恢复测试环境。
 
 ##### ProTip
 
@@ -89,7 +91,7 @@ Merge Requests 注释使用 Markdown 编写，因此您可以嵌入图像和表�
 
 <p>{% asset_img github-flow-merge.png github-flow-merge %}</p>
 
-现在您的 Changes 已在生产环境中得到验证，是时候将您的代码合并到 LTS Branch 中了。为了保证 LTS Branch 可靠性和扩展性 **只有 Maintainer 才有权限 Merge** 。
+现在您的 Changes 已在测试环境中得到验证，是时候让 **Maintainer 审查通过 Merge Requests** 将代码合并到 LTS Branch 中，好让测试人员在测试环境中验收后发布生产版本。
 
 合并后，Merge Requests 将保留代码历史更改的记录。 因为它们是可搜索的，可以让任何人回到过去，了解做出决定的原因和方式。
 
@@ -124,3 +126,48 @@ LTS branch 上永远都是稳定全量功能，所以深圳发布版本是包含
 - https://docs.gitlab.com/ee/university/training/gitlab_flow.html
 - https://docs.gitlab.com/ee/user/markdown.html#gitlab-flavored-markdown-gfm
 - https://nvie.com/posts/a-successful-git-branching-model/
+
+## 4）Q & A 写到另一个文件中，可持续更新
+
+建议补充以下内容：
+
+         1、Understanding the GitLab flow 中补充，LTS 的含义、重要性及权限说明
+
+LTS含义：
+“长期支持”的缩写。一般我们会有两种长期支持的分支类型 1）局点长期支持分支  2）主版本长期支持分支。
+只有开发经理或Maintainer才有权限创建和删除。
+
+         2、什么时候创建新的 LTS？
+
+主版本长期支持分支：
+随着 major 版本号升级（架构变化等重大变化）时才会创建主版本LTS分支
+
+局点长期支持分支：
+但是有些时候需要特例创建 LTS 分支，例如：某个局点已经在使用 v1.2.0，当前大版本 LTS 分支开发到 v1.8.0 时，我们可以基于 v1.2.0 tag 拉取一个分支解决一些问题，此分支为局点LTS 分支
+
+
+什么时候删除LTS
+
+主版本LTS分支永远不需要删除
+局点LTS分支删除情况：
+1，局点需要上新版本
+2，局点产品下线同时局点LTS通用特性已合并入主LTS分支
+
+         3、LTS命名规范
+
+局点 LTS 分支命名规范：
+用局点简称创建分支，例如：上海是 sh
+
+大版本升级的 LTS 分支命名规范：
+Lts 分支名格式为 v + major版本号 比如：v2
+版本号默认格式为 v + major.minor.path 比如：v2.3.5
+
+         4、Branch 构建 和 LTS 构建的区别 ，注： Deploy 章节中，写的内容存在问题。
+
+LTS分支构建的版本任何时候可用于生产。而其他分支上的构建仅用于测试。
+
+         5、什么时候删除 Branch ？
+什么时候删除 LTS Branch：
+已经被合并入 LTS 分支并且发布版本上线稳定 1个月后可以删除。
+
+---

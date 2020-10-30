@@ -9,7 +9,7 @@ tags:
 
 ## 1) Continuous integration is built-in
 
-<p>{% asset_img ci-cd-test-deploy-illustration_2x.png ci-cd-test-deploy-illustration_2x %}</p>
+![ci-cd-test-deploy-illustration_2x](images/ci-cd-test-deploy-illustration_2x.png)
 
 **持续集成(CI)**致力于将您的团队提供的代码集成到共 Shared Repository 中。开发人员在合并请求中共享新代码。在合并已修改代码之前，该请求触发构建 Pipline，构建，测试和验证新代码。
 

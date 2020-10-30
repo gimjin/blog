@@ -29,6 +29,7 @@ jobs:
           # Setting secrets HEXO_REPO_TOKEN from token (https://github.com/kimseongrim/blog/settings/secrets)
           HEXO_REPO_TOKEN: ${{ secrets.HEXO_REPO_TOKEN }}
         run: |
+          cp -r ./source/_posts/images ./public
           cd ./public
           git init
           git config user.name kimseongrim
