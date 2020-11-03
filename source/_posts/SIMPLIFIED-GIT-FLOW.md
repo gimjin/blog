@@ -1,22 +1,23 @@
 ---
-title: GitLab flow 指南
+title: Git flow 指南
 date: 2020-10-13 17:45:21
 tags:
 - git
 - flow
-- github flow
+- github
+- gitlab
 - git
 ---
 
-## 1) Why we need GitLab flow？
+## 1) Why we need Git flow？
 
-GitLab Flow 是更好的**团队轻量级合作方式**，基于 Branch 的工作流中共同解决问题，提出想法并在此过程中互相学习。它支持定期进行部署的团队和项目。本指南说明了GitLab Flow 的工作方式和原因。
+Git Flow 是更好的**团队轻量级合作方式**，基于 Branch 的工作流中共同解决问题，提出想法并在此过程中互相学习。它支持定期进行部署的团队和项目。本指南说明了Git Flow 的工作方式和原因。
 
 ![team.svg](images/team.svg)
 
 ---
 
-## 2) Understanding the GitLab flow
+## 2) Understanding the Git flow
 
 ### Create a branch / [Fork a repo](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork)
 
@@ -24,13 +25,13 @@ GitLab Flow 是更好的**团队轻量级合作方式**，基于 Branch 的工�
 
 当您从事一个项目时，您将拥有许多不同的 features 或 ideas（任何给定的时间内 - 其中一些准备就绪，而另一些则没有）。
 
-当您在项目中 Create a branch / Fork a repo，就是在创建尝试环境。您在尝试环境中所做的更改不会影响 LTS Branch，因此您**可以自由地进行试验和提交更改**，因为您可以知道当前环境不会被合并， **直到 Maintainer 审核为止，这是安全** 的。
+当您在项目中 Create a branch / Fork a repo，就是在创建尝试环境。您在尝试环境中所做的更改不会影响 Main Branch，因此您**可以自由地进行试验和提交更改**，因为您可以知道当前环境不会被合并， **直到 Maintainer 审核为止，这是安全** 的。
 
 ##### ProTip
 
-Branch 是 Git 中的核心概念，整个 GitLab flow 都以此为基础。 **只有一条规则：LTS(Long Time Support) 分支中的任何内容始终都是可部署** 的。
+Branch 是 Git 中的核心概念，整个 Git flow 都以此为基础。 **只有一条规则：Main branch 中的任何内容始终都是可部署** 的。
 
-因此，在处理 feature 或 fix 时，要从 LTS branch 之外 Create a branch / Fork a repo 是非常重要的。 您的分支名称应该是描述性的（例如，refactor-authentication, user-content-cache-key, make-retina-avatars），以便其他人可以从名称中看到正在处理的内容。
+因此，在处理 feature 或 fix 时，要从 Main branch 之外 Create a branch / Fork a repo 是非常重要的。 您的分支名称应该是描述性的（例如，refactor-authentication, user-content-cache-key, make-retina-avatars），以便其他人可以从名称中看到正在处理的内容。
 
 ### Add commits
 
@@ -59,7 +60,7 @@ Merge Requests 启动有关 Commits 的讨论。 因为它们与基础 Git 存�
 
 ##### ProTip
 
-Fork a repo 可以帮助您创建个人尝试环境，您随时可以用仅包含自己的 Changes 代码 Open a Merge Request 合并到 LTS Branch。而不会像 Create a branch 那样等待其他人的代码稳定。
+Fork a repo 可以帮助您创建个人尝试环境，您随时可以用仅包含自己的 Changes 代码 Open a Merge Request 合并到 Main Branch。而不会像 Create a branch 那样等待其他人的代码稳定。
 
 通过在 Merge Requests 消息中使用 GitLab @user 系统，您可以要求特定人员或团队提供反馈。
 
@@ -79,9 +80,9 @@ Merge Requests 注释使用 Markdown 编写，因此您可以嵌入图像和表�
 
 ![github-flow-deploy.png](images/github-flow-deploy.png)
 
-合并到 LTS branch 之前，您可以从 Branch 部署到测试环境中进行最终自测。
+合并到 Main branch 之前，您可以从 Branch 部署到测试环境中进行最终自测。
 
-当复查过 Merge Requests 并且 Branch 通过了最终自测，您可以部署 Changes 到测试环境中进行验证。如果是 Branch 引起了问题，您可以通过回滚 LTS branch 部署恢复测试环境。
+当复查过 Merge Requests 并且 Branch 通过了最终自测，您可以部署 Changes 到测试环境中进行验证。如果是 Branch 引起了问题，您可以通过回滚 Main branch 部署恢复测试环境。
 
 ##### ProTip
 
@@ -91,7 +92,7 @@ Merge Requests 注释使用 Markdown 编写，因此您可以嵌入图像和表�
 
 ![github-flow-merge.png](images/github-flow-merge.png)
 
-现在您的 Changes 已在测试环境中得到验证，是时候让 **Maintainer 审查通过 Merge Requests** 将代码合并到 LTS Branch 中，好让测试人员在测试环境中验收后发布生产版本。
+现在您的 Changes 已在测试环境中得到验证，是时候让 **Maintainer 审查通过 Merge Requests** 将代码合并到 Main Branch 中，好让测试人员在测试环境中验收后发布生产版本。
 
 合并后，Merge Requests 将保留代码历史更改的记录。 因为它们是可搜索的，可以让任何人回到过去，了解做出决定的原因和方式。
 
@@ -112,15 +113,26 @@ C2D(Coding To Deploy) 从编码到部署生产环境过程中使用 Git 模式�
 ![parallel.png](images/parallel.png)
 
 多客户 或 交付型软件开发团队会使用并行模式，其特点是同时有多个团队/人同时开发多个需求。例如：正在开发上海客户需求过程中深圳客户的需求要同步开发，在不同的时间点进行交付。
-LTS branch 上永远都是稳定全量功能，所以深圳发布版本是包含上海发布的版本。
+Main branch 上永远都是稳定全量功能，所以深圳发布版本是包含上海发布的版本。
 
 ![mixed.png](images/mixed.png)
 
-混合模式和并行模式唯一的区别是从 LTS branch merge 或者 cherrypick 到当前分支。例如：接着上面的例子，如果深圳客户不想要上海的某个功能时需要给此功能增加开关配置，所以需要从已被合并完成上海分支的 LTS Branch merge 到深圳研发分支上加入开关配置。
+混合模式和并行模式唯一的区别是从 Main branch merge 或者 cherrypick 到当前分支。例如：接着上面的例子，如果深圳客户不想要上海的某个功能时需要给此功能增加开关配置，所以需要从已被合并完成上海分支的 Main Branch merge 到深圳研发分支上加入开关配置。
 
 ---
 
-## 4) Reference
+## 4) Git Flow Map
+
+![gitflow-map](images/gitflow-map.png)
+
+###### PreTip:
+
+版本号规范请查看 [SemVer 语义化版本](https://semver.org/lang/zh-CN/)
+
+---
+
+## 5) Reference
+
 - https://guides.github.com/introduction/flow/
 - https://guides.github.com/pdfs/githubflow-online.pdf
 - https://docs.gitlab.com/ee/university/training/gitlab_flow.html
