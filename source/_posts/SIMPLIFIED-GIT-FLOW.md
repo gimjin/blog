@@ -120,7 +120,7 @@ Main branch 上永远都是稳定全量功能，所以深圳发布版本是包�
 
 ## 4) Git Flow Map
 
-![gitflow-map](images/gitflow-map.png)
+![gitflow-map](images/git-flow-map.png)
 
 ###### PreTip:
 
