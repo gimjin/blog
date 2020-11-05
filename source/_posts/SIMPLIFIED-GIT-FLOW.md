@@ -54,7 +54,6 @@ Nodejs 研发人员建议使用 [Commitlint](https://commitlint.js.org) 和 [Hus
 Merge Requests 启动有关 Commits 的讨论。 因为它们与基础 Git 存储库紧密集成，如果 Maintainer 接受您的请求，将会合并 Changes。
 
 您可以在开发过程中的任何时候打开 Merge Requests：
-- 当您只有很少的代码或根本没有代码，只想分享一些屏幕截图或一般性想法时
 - 当您陷入困境并需要帮助或建议时
 - 当您准备好让他人查看您的工作时
 
@@ -68,13 +67,13 @@ Fork a repo 可以帮助您创建个人尝试环境，您随时可以用仅包�
 
 ![github-flow-discuss.png](images/github-flow-discuss.png)
 
-打开 Merge Request 后，审阅您的 changes 的 Maintainer 或 Team 可能会有疑问或意见。 可能是编码风格与项目指南不符，更改缺少单元测试，或者看起来一切都很好，并且道具井井有条。Merge Requests 旨在鼓励和捕获这种类型的对话。
+打开 Merge Request 后，审阅您的 changes 的 Maintainer 或 Team 可能会有疑问或意见。 可能是编码风格与项目指南不符，更改缺少单元测试，或者看起来一切都很好，并且井井有条。Merge Requests 旨在鼓励和捕获这种类型的对话。
 
 您还可以根据有关提交的讨论和反馈中直接把修改推送到分支。如果有人评论您忘记做某事，或者代码中有错误，您可以在 branch 中对其进行 fix，并 push 更改。GitLab 将在统一的 Merge Request 视图中显示您的新提交以及您可能收到的任何其他反馈。
 
 ##### ProTip
 
-Merge Requests 注释使用 Markdown 编写，因此您可以嵌入图像和表情符号，使用预格式化的文本块以及其他轻量级格式。
+GitLab Flavored Markdown 可以识别与 GitLab 相关的[参考资料](https://docs.gitlab.com/ee/user/markdown.html#special-gitlab-references)。 例如，您可以引用项目中的问题，提交，团队成员，甚至整个团队。 GFM会将引用转换为链接，以便您可以在它们之间进行导航。使用＃123 引用问题将把输出格式化为带有文本 ＃123 的发布编号123的链接。
 
 ### Deploy
 
@@ -86,7 +85,7 @@ Merge Requests 注释使用 Markdown 编写，因此您可以嵌入图像和表�
 
 ##### ProTip
 
-测试环境中通过测试，需要升级版本号，例如：[Standard Version](https://github.com/conventional-changelog/standard-version) 可以帮助前端团队自动完成 升级版本号、创建 Tag、更新 CHANGELOG.md 等工作。
+测试环境中通过测试，需要升级版本号，例如：[Standard Version](https://github.com/conventional-changelog/standard-version) 可以帮助前端团队自动完成 `升级版本号` `创建 Tag` `更新 CHANGELOG.md` 等工作。
 
 ### Merge
 
@@ -94,11 +93,9 @@ Merge Requests 注释使用 Markdown 编写，因此您可以嵌入图像和表�
 
 现在您的 Changes 已在测试环境中得到验证，是时候让 **Maintainer 审查通过 Merge Requests** 将代码合并到 Main Branch 中，好让测试人员在测试环境中验收后发布生产版本。
 
-合并后，Merge Requests 将保留代码历史更改的记录。 因为它们是可搜索的，可以让任何人回到过去，了解做出决定的原因和方式。
-
 ##### ProTip
 
-GitLab Flavored Markdown 可以识别与 GitLab 相关的[参考资料](https://docs.gitlab.com/ee/user/markdown.html#special-gitlab-references)。 例如，您可以引用项目中的问题，提交，团队成员，甚至整个团队。 GFM会将引用转换为链接，以便您可以在它们之间进行导航。使用＃123 引用问题将把输出格式化为带有文本 ＃123 的发布编号123的链接。
+合并后，Merge Requests 将保留代码历史更改的记录。 因为它们是可搜索的，可以让任何人回到过去，了解做出决定的原因和方式。
 
 ---
 
@@ -108,16 +105,16 @@ C2D(Coding To Deploy) 从编码到部署生产环境过程中使用 Git 模式�
 
 ![serial.png](images/serial.png)
 
-客户单一 或 者产品型软件开发团队往往会使用串行模式。每一次开发完发布正式版本后才会继续迭代。
+**穿行模型：** 客户单一 或 者产品型软件开发团队往往会使用串行模式。每一次开发完发布正式版本后才会继续迭代。
 
 ![parallel.png](images/parallel.png)
 
-多客户 或 交付型软件开发团队会使用并行模式，其特点是同时有多个团队/人同时开发多个需求。例如：正在开发上海客户需求过程中深圳客户的需求要同步开发，在不同的时间点进行交付。
+**并行模型：** 多客户 或 交付型软件开发团队会使用并行模式，其特点是同时有多个团队/人同时开发多个需求。例如：正在开发上海客户需求过程中深圳客户的需求要同步开发，在不同的时间点进行交付。
 Main branch 上永远都是稳定全量功能，所以深圳发布版本是包含上海发布的版本。
 
 ![mixed.png](images/mixed.png)
 
-混合模式和并行模式唯一的区别是从 Main branch merge 或者 cherrypick 到当前分支。例如：接着上面的例子，如果深圳客户不想要上海的某个功能时需要给此功能增加开关配置，所以需要从已被合并完成上海分支的 Main Branch merge 到深圳研发分支上加入开关配置。
+**混合模型：** 混合模式和并行模式唯一的区别是从 Main branch merge 或者 cherrypick 到当前分支。例如：接着上面的例子，如果深圳客户不想要上海的某个功能时需要给此功能增加开关配置，所以需要从已被合并完成上海分支的 Main Branch merge 到深圳研发分支上加入开关配置。
 
 ---
 
